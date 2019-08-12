@@ -1,0 +1,32 @@
+.Footer{
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: black;
+    height: 20vh;
+    width: 100vw;
+}
+
+.footerIcons{
+    background-color: white;
+    font-size: xx-large;
+    margin-top: 1vh;
+    margin-left: 3vw;
+    border-radius: 50%;
+}
+
+.footerIconsAdd{
+    background-color: white;
+    font-size: xx-large;
+    margin-top: 1vh;
+    margin-left: 3vw;
+}
+
+.footer-social{
+    background-color: black;
+    color: white;
+    padding-left: 10px;
+}
+
+.footer-address{
+    display: inline;
+}

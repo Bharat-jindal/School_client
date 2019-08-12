@@ -1,0 +1,85 @@
+.studentPropertiesSpinner{
+    box-sizing: border-box;
+    font-size: 17vh;
+    position: fixed;
+    color: #ff9900;
+    left:45vw;
+    top: 30vh
+}
+
+.StudentPropertiesList{
+    box-sizing: border-box;
+    font-size: xx-large;
+    width: 70%;
+    height: 15vh;
+    border-radius: 100px;
+    background-color: #ff9900;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 4vh;
+}
+
+.StudentTaskPropList{
+    box-sizing: border-box;
+    font-size: x-large;
+    width: 70%;
+    height: 15vh;
+    border-radius: 100px;
+    background-color: #ff9900;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 2vh;
+}
+
+.studentPropDetailButton{
+    padding: 2vh;
+    margin-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.AddedTaskProperties{
+    box-sizing: border-box;
+    background-color: aquamarine;
+    height: 90vh;
+    width: 70vw;
+    border-radius: 50px;
+    margin: auto;
+    position:fixed;
+    top:8vh;
+    left:15vw;
+    overflow: auto;
+    z-index: 100000;
+}
+.TaskTitles{
+    font-size: x-large;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+@media(max-width:600px){
+    .studentPropertiesSpinner{
+        left:40vw;
+    }
+
+    .StudentPropertiesList{
+        width: 80%;
+        height: 12vh;
+        font-size: x-large;
+        padding: 3vh
+    }
+
+    .StudentTaskPropList{
+        width: 95%;
+        height: 12vh;
+        font-size: normal;
+        padding-top: 1vh
+    }
+
+    .studentPropDetailButton{
+        padding: 1.4vh;
+        margin-left: 20px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}

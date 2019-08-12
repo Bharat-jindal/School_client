@@ -1,0 +1,101 @@
+.TeacherIntro{
+    position: relative;
+    box-sizing: border-box;
+    width:70vw;
+    height:15vh;
+    margin:auto;
+    margin-top:20px;
+    background-color: #ff9900;
+    font-size: xx-large;
+    border-radius: 50px;
+}
+
+.MyTeachersEdit button {
+    size: larger
+}
+
+.TeacherProperties{
+    box-sizing: border-box;
+    background-color: #ff9900;
+    position:fixed;
+    top:5vh;
+    left:15vw;
+    height: 70vh;
+    width: 70vw;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: 15vh;
+    z-index: 100000;
+    overflow: auto;
+}
+.SchoolTitles{
+    font-size: x-large;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.fa-plus-circle{
+    font-size: 7vh;
+    position: fixed;
+    right:3vw;
+    bottom: 18vh;
+    color: #ff9900;
+}
+
+.DeleteBox {
+    position: fixed;
+    background-color: aquamarine;
+    height: 30vh;
+    width: 60vw;
+    left:25vw;
+    top:35vh;
+    padding-top: 8vh;
+    border: 2px dashed #ff9900;
+    z-index: 100000
+}
+
+.CancelButton {
+    height: 8vh;
+    width: 20vw;
+    font-size: xx-large;
+    background-color: greenyellow;
+    border: none
+}
+
+.DeleteButton {
+    height: 8vh;
+    width: 20vw;
+    font-size: xx-large;
+    background-color: red;
+    border: none
+}
+
+@media(max-width:500px){
+    .TeacherIntro{
+        height: 28vh;
+    }
+    .TeacherProperties{
+        width: 100%;
+        left:0vw;
+    }
+
+    .DeleteBox {
+        height: 30vh;
+        width: 100vw;
+        left:0vw;
+        top:35vh;
+        padding-top: 8vh;
+    }
+    
+    .CancelButton {
+        height: 8vh;
+        width: 40vw;
+        font-size: x-large;
+    }
+    
+    .DeleteButton {
+        height: 8vh;
+        width: 40vw;
+        font-size: x-large;
+    }
+}

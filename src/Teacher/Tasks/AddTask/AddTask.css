@@ -1,0 +1,107 @@
+.AddTaskMainsign{
+    position: fixed;
+    top:2vh;
+    left:20vw;
+    width:60vw;
+    height: 90vh;
+    background-color: #ff9900;
+    z-index: 10000;
+    backface-visibility: 0.9;
+    overflow: auto;
+}
+
+.AddTeacherInput{
+    margin-top:15px;
+    border: 1px solid #000000;
+    height: 30px;
+    width:20vw;
+    position: relative;
+    left:10vw;
+    font-size: large;
+    
+}
+
+.invalid{
+    background-color: #ff6666;
+    border: 2px solid black
+}
+
+.AddTeacherInputText{
+    margin-top: 15px;
+    position: relative;
+    left:-3vw;
+}
+
+.AddTeacherMainButton{
+    width:20vw;
+    height: 6vh;
+    border:none;
+    background-color: #4d4d4d
+}
+
+@media(max-width:500px){
+    .SignupMain{
+        left:5vw;
+        width:90vw;
+        background-color: #ff9900;
+        z-index: 10000;
+        backface-visibility: 0.9
+    }
+    
+    .signupInput{
+        width:40vw;
+        left:5vw;
+        font-size: large;
+    } 
+    .SignupMainButton{
+        width:40vw;
+    }
+}
+
+.AddedTaskProperties{
+    box-sizing: border-box;
+    background-color: aquamarine;
+    height: 90vh;
+    width: 70vw;
+    border-radius: 50px;
+    margin: auto;
+    position:fixed;
+    top:8vh;
+    left:15vw;
+    overflow: auto;
+}
+.TaskTitles{
+    font-size: x-large;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+.AddTextArea{
+    box-sizing: border-box;
+    position: static;
+    margin: auto;
+    width: 90%;
+    height: 13vh;
+}
+
+.SchoolPropertiesEditButton{
+    position: relative;
+    top: 20vh;
+    left:25vw;
+}
+
+.AddContent{
+    position: static;
+    color: aquamarine;
+    font-size: xx-large
+}
+
+@media(max-width:500px){
+
+    .SchoolProperties{
+        width: 100%;
+    }
+    .AddTaskMainsign{
+        width:90vw;
+        left:5vw;
+    }
+}

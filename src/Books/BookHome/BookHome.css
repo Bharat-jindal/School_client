@@ -1,0 +1,54 @@
+.BookSwitch{
+    width:48vw;
+    float: left;
+    margin: 0px;
+    border:2px dashed aquamarine;
+    min-height: 80vh
+}
+
+.FeeSelect{
+    background-color: aquamarine;
+    padding:10px;
+}
+
+.booksList{
+    background-color: #ff9900;
+    width:80%;
+    border-radius: 50px;
+    font-weight: bold;
+    margin: auto;
+    padding: 3vh;
+    margin-bottom: 15px;
+}
+
+@media(max-width:800px){
+    .BookSwitch{
+        width:100vw;
+        float: none;
+        margin: 0px;
+        border:2px dashed aquamarine;
+        min-height: 80vh
+    }
+}
+
+.IssueOrAddBook{
+    width:48vw;
+    float: right;
+    margin: 0px;
+    border:2px dashed aquamarine;
+    min-height: 80vh
+}
+
+.deleteFeeSpinner{
+    font-size: 20vh;
+}
+
+@media(max-width:800px){
+    .IssueOrAddBook{
+        width:100vw;
+        float: none;
+        margin: 0px;
+        border:2px dashed aquamarine;
+        min-height: 80vh
+    }
+}

@@ -1,0 +1,27 @@
+.SchoolProperties{
+    box-sizing: border-box;
+    background-color: #ff9900;
+    height: 70vh;
+    width: 70vw;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: 15vh;
+}
+.SchoolTitles{
+    font-size: x-large;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.SchoolPropertiesEditButton{
+    position: relative;
+    top: 20vh;
+    left:10vw;
+}
+
+@media(max-width:500px){
+
+    .SchoolProperties{
+        width: 100%;
+    }
+}

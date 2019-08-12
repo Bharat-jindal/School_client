@@ -1,0 +1,107 @@
+.HomeTop{
+    box-sizing: border-box;
+    width:100%;
+    height: 50vh;
+    background-color: #4d4d4d
+}
+
+.HomeImage{
+    box-sizing: border-box;
+    width: 30vw;
+    height: 47vh;
+    float: left;
+}
+
+.HomeMessage {
+    box-sizing: border-box;
+    width: 50vw;
+    color:white;
+    position: absolute;
+    top:10vh;
+    right:10vw;
+    font-size: 8vh;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.LoginCards{
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 10px;
+    width:30vw;
+    height:40vh;
+    background-color: #ff9900;
+    border-radius: 10%;
+    font-size: 2vw;
+}
+
+.LoginTable{
+    position: relative;
+    top: 10px;
+    box-sizing: border-box;
+}
+
+.HomeIcons{
+    padding: 5vh;
+    font-size: 10vw;
+}
+
+.SignupMessage{
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 7vw;
+    padding-bottom: 0px;
+}
+
+.SignupPageOpener{
+    width:30vw;
+    height:60px;
+    background-color: #ff9900;
+    font-weight: bold;
+    border: none;
+    border-radius: 30%;
+    box-shadow: #4d4d4d;
+    margin-top: 0px;
+}
+.Loders{
+    font-size: 20vw;
+    font-size: 20vw;
+    z-index: 1000000;
+    position: fixed;
+    top: 60vh;
+    left: 40vw;
+    size:9x;
+}
+
+@media(max-width:500px){
+    .HomeTop{
+        height: 67vh;
+    }
+    .HomeImage{
+        width: 100vw;
+        height: 40vh;
+        float: none;
+    }
+    
+    .HomeMessage {
+        width: 70vw;
+        margin: auto;
+        position: absolute;
+        top:45vh;
+        font-size: 5vh;
+        font-family: 'Courier New', Courier, monospace
+    }
+
+    .LoginCards{
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        width:90vw;
+        height:40vh;
+        font-size: 10vw;
+    }
+    
+    .HomeIcons{
+        padding: 2vh;
+        font-size: 15vh;
+    }
+}

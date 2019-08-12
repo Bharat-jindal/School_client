@@ -1,0 +1,200 @@
+import React ,{Component} from 'react';
+import {connect} from 'react-redux';
+import "@fortawesome/fontawesome-free/css/all.css";
+
+import * as actions from '../../store/actions/index';
+import './EditStudent.css'
+
+class EditProperties extends Component {
+    state={
+        fields:{
+            name:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            streat:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            town:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            district:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            state:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            fathername:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            mothername:{
+                value:'',
+                validity:true,
+                blurred:true,
+                touched:true
+            },
+            
+        },
+        admin:false,
+        clicked:false
+    }
+    componentDidMount(){
+        var updatedField={...this.state.fields};
+        updatedField.name.value=this.props.name;
+        updatedField.streat.value=this.props.streat;
+        updatedField.town.value=this.props.town;
+        updatedField.district.value=this.props.district;
+        updatedField.state.value=this.props.state;
+        updatedField.fathername.value=this.props.fathername;
+        updatedField.mothername.value=this.props.mothername;
+        this.setState({fields:updatedField,admin:this.props.admin})
+    }
+
+    checkvalidity=(value)=>{
+        return (value.trim()!=='')
+    }
+    clickChangeHandler=(event,key)=>{
+        var updatedfields={...this.state.fields};
+        const newfeildValue={...this.state.fields[key]}
+        
+        const validity=this.checkvalidity(event.target.value,true);
+        newfeildValue.validity=validity
+        newfeildValue.value=event.target.value
+        updatedfields[key]=newfeildValue;
+        this.setState({fields:updatedfields})
+    }
+    onFocusHAndler=(key)=>{
+        var updatedfields={...this.state.fields};
+        const newfeildValue={...this.state.fields[key]}
+        const validity=this.checkvalidity(newfeildValue.value,true);
+        newfeildValue.validity=validity
+        newfeildValue.touched=true
+        newfeildValue.blurred=false;
+        updatedfields[key]=newfeildValue;
+        this.setState({fields:updatedfields})
+    }
+    onBlurHandler=(key)=>{
+        var updatedfields={...this.state.fields}
+        const newfeildValue={...this.state.fields[key]}
+        newfeildValue.blurred=true;
+        
+        const validity=this.checkvalidity(newfeildValue.value,this.state.fields[key].touched);
+        newfeildValue.validity=validity
+        updatedfields[key]=newfeildValue;
+        this.setState({fields:updatedfields})
+    }
+    onselectHandler=(event)=>{
+        this.setState({admin:event.target.value})
+    }
+    onUpdateStudent=()=>{
+        this.setState({clicked:true})
+        this.props.onUpdateStudentRequest(
+            this.props._id,
+            this.state.fields.name.value,
+            this.state.fields.streat.value,
+            this.state.fields.town.value,
+            this.state.fields.district.value,
+            this.state.fields.state.value,
+            this.state.fields.fathername.value,
+            this.state.fields.mothername.value,
+            this.props.classNum
+        )
+
+    }
+    render(){
+
+        var update=null;
+        console.log()
+        if(this.props.updated && this.state.clicked){
+            update=<p>Info Updated</p>
+        }
+        var error=null;
+        if(this.props.error && this.state.clicked){
+            error=<p>Something went wrong</p>
+        }
+        var spinner=null;
+        if(this.props.loading){
+            spinner=<span className="fa fa-spinner"></span>
+        }
+        let formElementArray=[];
+        var formValidity=false;
+        for(let key in this.state.fields){
+            formValidity=formValidity || (!this.state.fields[key].validity )
+            formElementArray.push({
+                id: key
+            })
+        }
+        
+            
+            let form=(
+                <div >
+                {formElementArray.map(formElement => {
+                    var classname=['signupInput']
+                    if(!this.state.fields[formElement.id].validity && this.state.fields[formElement.id].blurred){
+                        classname.push('invalid')
+                    }
+                return (
+                    <div key={formElement.id}>
+                        <span className={'SignupInputText'}>{formElement.id}:</span>
+                <input 
+                value={this.state.fields[formElement.id].value}
+                className={classname.join(' ')}
+                 onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
+                 onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
+                 onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
+                 </div>)
+                }
+                )}
+                </div>
+            )
+
+        return(
+            <div className="SignupMain">
+                {form}
+                <br />
+                <br />
+                <button className="SignupMainButton" 
+                type="button"
+                onClick={this.onUpdateStudent}
+                disabled={formValidity}
+                >UPDATE</button>
+                {update}
+                {error}
+                {spinner}
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+      loading:state.teacher.loading,
+      error:state.teacher.studentUpdateError,
+      updated:state.teacher.studentUpdated,
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      onUpdateStudentRequest:(_id,name,streat,town,district,state,fathername,mothername,classNum)=>dispatch(actions.updateStudent(_id,name,streat,town,district,state,fathername,mothername,classNum))
+    }
+  }
+
+export default connect(mapStateToProps,mapDispatchToProps)(EditProperties)
