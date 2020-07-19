@@ -9,6 +9,7 @@ import * as actions from '../../store/actions/index';
 import TeacherEditor from './EditTeacher';
 import SetPassword from './SetPAssword';
 import AddTeacher from './AddTeacher/AddTeacher';
+import Spinner from '../../containers/UI/Spinner/Spinner'
 
 class MyTeachers extends Component{
 
@@ -101,7 +102,7 @@ class MyTeachers extends Component{
                 {
                     formElementArray.map(property=>{
                         return <div key={property.id}>
-                            <div key={property.id}><span className="SchoolTitles">{property.id}</span>:<span>{this.state.teacher[property.id]}</span></div>
+                            <div key={property.id}><span className="SchoolTitles">{property.id.toUpperCase()}:</span><span>{this.state.teacher[property.id]}</span></div>
                         </div>
                     })
                 }
@@ -118,16 +119,16 @@ class MyTeachers extends Component{
             {teacher.name}
             <br />
             <div className="MyTeachersEdit">
-                <button onClick={()=>this.showTeacherEditor(teacher)}>Edit</button>
-                <button onClick={()=>this.showTeacherPasswordSetter(teacher)}>Set Password</button>
-                <button onClick={()=>this.showProperties(teacher)}>Details</button>
-                <button onClick={()=>this.showDeleteProperties(teacher)}>DELETE</button>
+                <button onClick={()=>this.showTeacherEditor(teacher)} className="common-form-buttons" style={{marginLeft:"5px",marginRight:"5px"}}>Edit</button>
+                <button onClick={()=>this.showTeacherPasswordSetter(teacher)} className="common-form-buttons" style={{marginLeft:"5px",marginRight:"5px"}}>Set Password</button>
+                <button onClick={()=>this.showProperties(teacher)} className="common-form-buttons" style={{marginLeft:"5px",marginRight:"5px"}}>Details</button>
+                <button onClick={()=>this.showDeleteProperties(teacher)} className="common-form-buttons" style={{marginLeft:"5px",marginRight:"5px"}}>DELETE</button>
             </div>
         </div>
     })
     return (
         <div>
-            {this.props.loading?<span className="fa fa-spinner" style={{fontSize:'30vh'}}></span>:null}
+            {this.props.loading?<Spinner />:null}
             {teachers}
             {editior}
             {set}

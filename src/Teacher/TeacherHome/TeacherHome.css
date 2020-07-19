@@ -8,9 +8,10 @@
     margin-top: 15vh;
 }
 .SchoolTitles{
-    font-size: x-large;
+    font-weight: bold;
     margin-top: 20px;
     padding-top: 20px;
+    margin-right: 10px;
 }
 
 .SchoolPropertiesEditButton{

@@ -2,7 +2,8 @@ import React ,{Component} from 'react';
 import {connect} from 'react-redux';
 
 import * as actions from '../../store/actions/index';
-import './Password.css'
+import './Password.css';
+import Spinner from '../../containers/UI/Spinner/Spinner'
 
 class SetPassword extends Component {
     state={
@@ -84,7 +85,7 @@ class SetPassword extends Component {
         }
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
         let formElementArray=[];
         var formValidity=false;
@@ -108,7 +109,7 @@ class SetPassword extends Component {
                         <span className={'SignupInputText'}>{formElement.id}:</span>
                 <input 
                 value={this.state.fields[formElement.id].value}
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>

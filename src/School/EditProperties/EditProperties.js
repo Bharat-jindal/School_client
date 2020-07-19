@@ -112,10 +112,10 @@ class EditProperties extends Component {
                     }
                 return (
                     <div key={formElement.id}>
-                        <span className={'SignupInputText'}>{formElement.id}:</span>
+                        <span className={'SignupInputText'}>{formElement.id.toUpperCase()}:</span>
                 <input 
                 value={this.state.fields[formElement.id].value}
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -130,7 +130,7 @@ class EditProperties extends Component {
                 {form}
                 <br />
                 <br />
-                <button className="SignupMainButton" 
+                <button className="common-form-buttons" style={{fontSize:'large',height:'40px',lineHeight:"40px"}}
                 type="button"
                 onClick={()=>this.props.onUpdateSchoolRequest(
                     this.state.fields.name.value,

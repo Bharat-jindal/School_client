@@ -1,6 +1,7 @@
 import React ,{Component} from 'react';
 import './LoginBox.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Spinner from '../../containers/UI/Spinner/Spinner';
 
 class Signup extends Component {
     state={
@@ -84,7 +85,7 @@ class Signup extends Component {
                     <div key={formElement.id}>
                         <span className={'SignupInputText'}>{formElement.id}:</span>
                 <input 
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -99,14 +100,15 @@ class Signup extends Component {
                 {form}
                 <br />
                 <br />
-                <button className="SignupMainButton" 
+                <button className="common-form-buttons" 
+                style={{marginTop:'10px',width:'180px',height:'40px',lineHeight:'40px'}}
                 type="button"
                 onClick={this.onButtonClicked}
                 disabled={(!this.state.fields.username.validity || !this.state.fields.username.touched )
                         || (!this.state.fields.password.validity ||!this.state.fields.password.touched)}
                 >LOGIN</button>
                 <br />
-                {this.props.loading?<span className="fa fa-spinner"></span>:null}
+                {this.props.loading?<Spinner />:null}
                 {this.props.role==='school'?<span className="PasswordOptions" onClick={this.props.setClicked}>Set Password</span>:null}
                 <p>{error}</p>
             </div>

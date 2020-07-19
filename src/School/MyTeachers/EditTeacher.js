@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.css";
 
 import * as actions from '../../store/actions/index';
-import './EditTecher.css'
+import './EditTecher.css';
+import Spinner from '../../containers/UI/Spinner/Spinner'
 
 class EditProperties extends Component {
     state={
@@ -114,7 +115,7 @@ class EditProperties extends Component {
         }
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
         let formElementArray=[];
         var formValidity=false;
@@ -138,7 +139,7 @@ class EditProperties extends Component {
                         <span className={'SignupInputText'}>{formElement.id}:</span>
                 <input 
                 value={this.state.fields[formElement.id].value}
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -158,7 +159,8 @@ class EditProperties extends Component {
                 {form}
                 <br />
                 <br />
-                <button className="SignupMainButton" 
+                <button className="common-form-buttons" 
+                style={{height:"40px",lineHeight:"40px",width:'120px'}}
                 type="button"
                 onClick={this.onUpdateTeacher}
                 disabled={formValidity}

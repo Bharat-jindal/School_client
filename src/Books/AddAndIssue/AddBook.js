@@ -3,7 +3,8 @@ import './AddAndIssue.css'
 import {connect} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.css";
 
-import * as actions from '../../store/actions/index'
+import * as actions from '../../store/actions/index';
+import Spinner from '../../containers/UI/Spinner/Spinner';
 
 class AddBook extends Component {
     state={
@@ -80,7 +81,7 @@ class AddBook extends Component {
         
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
         let formElementArray=[];
         var formValidity=false
@@ -102,7 +103,7 @@ class AddBook extends Component {
                         <span className={'AddBookInputText'}>{formElement.id}:</span>
                 <input 
                 value={this.state.fields[formElement.id].value}
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -115,7 +116,8 @@ class AddBook extends Component {
         return(
             <div className="AddBookMainsign">
                 {form}
-                <button className="AddBookMainButton"
+                <button className="common-form-buttons"
+                style={{marginTop:"20px"}}
                 onClick={()=>this.addBook()}
                 disabled={formValidity}>Add Book</button>
                 {info}

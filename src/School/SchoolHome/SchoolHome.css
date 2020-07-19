@@ -13,11 +13,7 @@
     padding-top: 20px;
 }
 
-.SchoolPropertiesEditButton{
-    position: relative;
-    top: 20vh;
-    left:10vw;
-}
+
 
 @media(max-width:500px){
 

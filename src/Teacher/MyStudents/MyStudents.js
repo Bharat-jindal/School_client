@@ -8,6 +8,7 @@ import * as actions from '../../store/actions/index';
 import StudentEditor  from './EditStudent';
 import SetPassword from './SetPAssword';
 import AddStudent from './AddStudent/AddStudent';
+import Spinner from '../../containers/UI/Spinner/Spinner'
 
 class MyStuents extends Component{
 
@@ -58,7 +59,7 @@ class MyStuents extends Component{
     render(){
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner/>
         }
     var studentsKeyArray=this.props.students;
     var editior=null;
@@ -114,7 +115,7 @@ class MyStuents extends Component{
                 {
                     formElementArray.map(property=>{
                         return <div key={property.id}>
-                            <div key={property.id}><span className="SchoolTitles">{property.id}</span>:<span>{this.state.student[property.id]}</span></div>
+                            <div key={property.id}><span className="SchoolTitles">{property.id.toUpperCase()}:</span><span>{this.state.student[property.id]}</span></div>
                         </div>
                     })
                 }
@@ -130,18 +131,23 @@ class MyStuents extends Component{
             {student.name}
             <br />
             <div className="MyTeachersEdit">
-                <button onClick={()=>this.showTeacherEditor(student)}>Edit</button>
-                <button onClick={()=>this.showTeacherPasswordSetter(student)}>Set Password</button>
-                <button onClick={()=>this.showProperties(student)}>Details</button>
-                <button onClick={()=>this.showDeleteProperties(student)}>DELETE</button>
+                <button onClick={()=>this.showTeacherEditor(student)}
+                    style={{marginLeft:"5px",marginRight:"5px"}} className="common-form-buttons">Edit</button>
+                <button onClick={()=>this.showTeacherPasswordSetter(student)}
+                    style={{marginLeft:"5px",marginRight:"5px"}} className="common-form-buttons">Set Password</button>
+                <button onClick={()=>this.showProperties(student)}
+                    style={{marginLeft:"5px",marginRight:"5px"}} className="common-form-buttons">Details</button>
+                <button onClick={()=>this.showDeleteProperties(student)}
+                    style={{marginLeft:"5px",marginRight:"5px"}} className="common-form-buttons">DELETE</button>
             </div>
         </div>
     })
     return (
         <div>
             <div>
-                <input onChange={(event)=>this.classChangeHandler(event)} value={this.state.class.value}/>
-                <button onClick={()=>this.submitClassHandler()}>GET STUDENTS</button>
+                <span style={{fontWeight:"bold",marginRight:"10px"}}>CLASS:</span>
+                <input onChange={(event)=>this.classChangeHandler(event)} value={this.state.class.value} className="common-input"/>
+                <button onClick={()=>this.submitClassHandler()} className="common-form-buttons" style={{marginLeft:"10px"}}>GET STUDENTS</button>
             </div>
             {spinner}
             {students}

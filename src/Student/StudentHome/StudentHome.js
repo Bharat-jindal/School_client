@@ -38,9 +38,11 @@ class Home extends Component {
         return (
             <div>
                 <div>
-                    <div className="StudentProperties">
+                    <div className="common-form-display">
                         {properties}
-                        <button className="StudentPropertiesEditButton" onClick={this.passwordHandler}>CHANGE PASSWORD</button>
+                        <button className="common-form-buttons" 
+                        style={{marginTop:'30px',marginLeft:'30px'}}
+                        onClick={this.passwordHandler}>CHANGE PASSWORD</button>
                     </div>
                 </div>
                 {changePassword}

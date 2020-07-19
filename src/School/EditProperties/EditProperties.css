@@ -6,7 +6,8 @@
     height: 90vh;
     background-color: #ff9900;
     z-index: 10000;
-    backface-visibility: 0.9
+    backface-visibility: 0.9;
+    padding:15px;
 }
 
 .signupInput{
@@ -32,10 +33,6 @@
 }
 
 .SignupMainButton{
-    width:20vw;
-    height: 38px;
-    border:none;
-    background-color: #4d4d4d
 }
 
 @media(max-width:500px){

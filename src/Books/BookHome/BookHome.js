@@ -8,7 +8,7 @@ import Backdrop from '../../containers/UI/Backdrop/Backdrop';
 import AddBook from '../AddAndIssue/AddBook';
 import IssueBook from '../AddAndIssue/IssueBook';
 import UpdateBook from '../AddAndIssue/UpdateBook';
-
+import Spinner from '../../containers/UI/Spinner/Spinner';
 
 class BookHome extends Component {
     state={
@@ -63,7 +63,7 @@ class BookHome extends Component {
         if(this.state.bookSwitch==='Student'){
             studentIdInput=<div>
                 <span>USERNAME:</span>
-                <input value={this.state.username.value} onChange={this.usernameChangeHandler}/>
+                <input value={this.state.username.value} onChange={this.usernameChangeHandler} className="common-input"/>
             </div>
         }
         var books=this.props.books.map((book,index)=>{
@@ -72,10 +72,12 @@ class BookHome extends Component {
                 <span style={{paddingRight:'1vw'}}>{book.subject}</span>
                 <span style={{paddingRight:'1vw'}}>{book.available?'Available':book.student}</span>
                 <br />
-                <button onClick={this.bookDeleteHandler.bind(this,book._id,index)}>DELETE</button>
-                <button onClick={this.bookUpdateHandler.bind(this,book)}>UPDATE</button>
+                <button onClick={this.bookDeleteHandler.bind(this,book._id,index)} className="common-form-buttons" 
+                    style={{marginTop:"10px",marginLeft:"5px",marginRight:"5px"}}>DELETE</button>
+                <button onClick={this.bookUpdateHandler.bind(this,book)} className="common-form-buttons" 
+                    style={{marginTop:"10px",marginLeft:"5px",marginRight:"5px"}}>UPDATE</button>
                 <br />
-                {(index===this.state.delIndex && this.props.loading)?<span className="fa fa-spinner"></span>:null}
+                {(index===this.state.delIndex && this.props.loading)?<Spinner />:null}
                 {(index===this.state.delIndex && this.props.updateError)?<span >Something Went Wrong</span>:null}
                 
             </div>
@@ -99,7 +101,7 @@ class BookHome extends Component {
                 </select>
                 {studentIdInput}
                 <button onClick={this.getTheBooks} style={{padding:'15px',border:'none'}} >FIND</button>
-                {this.props.loading && this.state.bookClicked ?<span className="fa fa-spinner"></span>:null}
+                {this.props.loading && this.state.bookClicked ?<Spinner />:null}
                 {books}
                 {updateBox}
               <Backdrop show={this.state.update} clicked={this.hideBackdrop} />

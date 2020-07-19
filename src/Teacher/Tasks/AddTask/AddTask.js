@@ -3,7 +3,8 @@ import './AddTask.css'
 import {connect} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.css";
 
-import * as actions from '../../../store/actions/index'
+import * as actions from '../../../store/actions/index';
+import Spinner from '../../../containers/UI/Spinner/Spinner'
 
 class Addtask extends Component {
     state={
@@ -144,7 +145,7 @@ class Addtask extends Component {
     render(){
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
         var properties=null
         if(this.props.updated && this.state.clicked){
@@ -188,7 +189,7 @@ class Addtask extends Component {
             <span className={'AddTeacherInputText'}>Title:</span>
             <input 
             value={this.state.title.value}
-            className={classname.join(' ')}
+            className={classname.join(' ')+' common-input'}
             onChange={this.titleClickedHandler} 
             onFocus={this.titleFocusHandler} 
             onBlur={this.titleFocusHandler}/>
@@ -197,7 +198,7 @@ class Addtask extends Component {
         <span className={'AddTeacherInputText'}>Class:</span>
         <input 
         value={this.state.class.value}
-        className={classname.join(' ')}
+        className={classname.join(' ')+' common-input'}
         onChange={this.classClickedHandler} 
         onFocus={this.classFocusHandler} 
         onBlur={this.classFocusHandler}/>
@@ -233,7 +234,8 @@ class Addtask extends Component {
         return(
             <div className="AddTaskMainsign">
                 {form}
-                <button className="AddTeacherMainButton"
+                <button className="common-form-buttons"
+                style={{marginTop:'25px',height:'40px',lineHeight:'40px',width:'130px'}}
                 onClick={()=>this.addTask()}
                 disabled={formValidity}>Addtask</button>
                 {spinner}

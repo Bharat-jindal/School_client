@@ -5,6 +5,7 @@ import './Mytasks.css'
 import Backdrop from '../../../containers/UI/Backdrop/Backdrop';
 import AddTask from '../AddTask/AddTask'
 import * as actions from '../../../store/actions/index';
+import Spinner from '../../../containers/UI/Spinner/Spinner'
 
 class MyStuents extends Component{
 
@@ -45,7 +46,7 @@ class MyStuents extends Component{
     render(){
     var spinner=null;
     if(this.props.loading){
-        spinner=<span className="fa fa-spinner"></span>
+        spinner=<Spinner />
     }
     var tasksKeyArray=this.props.tasks;
 
@@ -74,7 +75,8 @@ class MyStuents extends Component{
     if(this.state.details){
         properties=(
             <div className="TeacherProperties">
-                <span className="SchoolTitles">Title:</span>:<span>{this.state.task.title}</span>
+                <span className="SchoolTitles">Title:</span><span>{this.state.task.title}</span>
+                <div style={{height:'25px'}}></div>
                 {
                     this.state.task.contents.map((content,index)=>{
                         return <div key={index}>
@@ -94,8 +96,10 @@ class MyStuents extends Component{
             {task.title}
             <br />
             <div className="MyTeachersEdit">
-                <button onClick={()=>this.showProperties(task)}>Details</button>
-                <button onClick={()=>this.showDeleteProperties(task)}>DELETE</button>
+                <button onClick={()=>this.showProperties(task)}
+                    className="common-form-buttons" style={{marginLeft:'5px',marginRight:'5px'}}>Details</button>
+                <button onClick={()=>this.showDeleteProperties(task)}
+                    className="common-form-buttons" style={{marginLeft:'5px',marginRight:'5px'}}>DELETE</button>
             </div>
         </div>
     })

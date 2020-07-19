@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 import * as actions from '../../store/actions/index';
 import Backdrop from '../../containers/UI/Backdrop/Backdrop';
+import Spinner from '../../containers/UI/Spinner/Spinner'
 
 class studentSide extends Component {
     state={
@@ -61,7 +62,7 @@ class studentSide extends Component {
                     <option value={false} >NOT PAID</option>
                 </select>
                 <br />
-                <button onClick={this.submitUpdate} >UPDATE</button>
+                <button onClick={this.submitUpdate} className="common-form-buttons" style={{marginTop:"30px"}}>UPDATE</button>
                 {updateInfo}
             </div>
         }
@@ -71,7 +72,7 @@ class studentSide extends Component {
         }
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner StudentSpinner"></span>
+            spinner=<Spinner />
         }
         var feesArray=this.props.studGet.map((fee,index)=>{
             return <div className="FeeStatusList" key={index}>
@@ -87,7 +88,7 @@ class studentSide extends Component {
                 {spinner}
                 <div>
                     <b>STUDENT ID</b>
-                    <input value={this.state.studId.value} onChange={this.studentChangeId}/>
+                    <input value={this.state.studId.value} onChange={this.studentChangeId} className="common-input"/>
                     <button onClick={this.getStudentHandler}>GET FEES</button>
                 </div>
                 <br />

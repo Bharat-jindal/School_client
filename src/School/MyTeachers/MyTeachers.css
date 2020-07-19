@@ -18,19 +18,20 @@
     box-sizing: border-box;
     background-color: #ff9900;
     position:fixed;
-    top:5vh;
+    top:10vh;
     left:15vw;
     height: 70vh;
     width: 70vw;
     border-radius: 50px;
-    margin: auto;
-    margin-top: 15vh;
     z-index: 100000;
+    text-align: left;
+    padding: 20px;
 }
 .SchoolTitles{
     font-size: x-large;
     margin-top: 20px;
     padding-top: 20px;
+    margin-right: 10px;
 }
 
 .fa-plus-circle{

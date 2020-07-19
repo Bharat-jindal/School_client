@@ -46,17 +46,20 @@ class Home extends Component {
 
         var properties=formElementArray.map(property=>{
             return <div key={property.id}>
-                <div key={property.id}><span className="SchoolTitles">{property.id}</span>:<span>{this.props.user[property.id]}</span></div>
+                <div key={property.id}>
+                    <span className="common-form-keys">{property.id.toUpperCase()}:</span>
+                    <span>{this.props.user[property.id]}</span>
+                </div>
             </div>
         })
         return (
             <div>
                 <div>
-                    <div className="SchoolProperties">
+                    <div className="common-form-display">
                         {properties}
                         
-                        <button className="SchoolPropertiesEditButton" onClick={this.editHandler}>Edit</button>
-                        <button className="SchoolPropertiesEditButton" onClick={this.passwordHandler}>CHANGE PASSWORD</button>
+                        <button className="common-form-buttons" style={{marginTop:"30px",marginRight:"30px"}} onClick={this.editHandler}>Edit</button>
+                        <button className="common-form-buttons" onClick={this.passwordHandler}>CHANGE PASSWORD</button>
                     </div>
                 </div>
                 {changePassword}

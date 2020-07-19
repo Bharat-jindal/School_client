@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 import './Properties.css';
+import Spinner from '../../containers/UI/Spinner/Spinner'
 
 import BackDrop from '../../containers/UI/Backdrop/Backdrop';
 
@@ -29,7 +30,8 @@ class GetBooks extends Component {
                 <span >{task.title.toUpperCase()}</span>
                 <br />
                 <span >By: {task.teacher.name}</span>
-                <button onClick={this.showDetailHandler.bind(this,task)} className="studentPropDetailButton">DETAILS</button>
+                <button onClick={this.showDetailHandler.bind(this,task)} 
+                className="common-form-buttons" style={{marginLeft:'15px'}}>DETAILS</button>
             </div>
         })
         var properties=null;
@@ -51,7 +53,7 @@ class GetBooks extends Component {
         </div>)
         }
         return <div>
-        {this.props.loading?<span className="fa fa-spinner studentPropertiesSpinner"></span>:null}
+        {this.props.loading?<Spinner />:null}
             {this.props.error?<h2 style={{color:'#ff9900'}}>Something Went Wrong</h2>:null}
             {tasks}
             {properties}

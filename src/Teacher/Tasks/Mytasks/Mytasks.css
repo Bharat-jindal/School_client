@@ -27,6 +27,7 @@
     margin-top: 15vh;
     z-index: 100000;
     overflow: auto;
+    padding:20px
 }
 .SchoolTitles{
     font-size: x-large;

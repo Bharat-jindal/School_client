@@ -44,7 +44,8 @@
         width:90vw;
         background-color: #ff9900;
         z-index: 10000;
-        backface-visibility: 0.9
+        backface-visibility: 0.9;;
+        padding:15px;
     }
     
     .signupInput{

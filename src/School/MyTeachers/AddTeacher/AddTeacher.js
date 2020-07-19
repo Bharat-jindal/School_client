@@ -3,7 +3,8 @@ import './AddTeacher.css'
 import {connect} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.css";
 
-import * as actions from '../../../store/actions/index'
+import * as actions from '../../../store/actions/index';
+import Spinner from '../../../containers/UI/Spinner/Spinner'
 
 class AddTeacher extends Component {
     state={
@@ -141,7 +142,7 @@ class AddTeacher extends Component {
         
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
         var added=null;
         if(this.props.updated && this.state.clicked){
@@ -168,7 +169,7 @@ class AddTeacher extends Component {
                         <span className={'AddTeacherInputText'}>{formElement.id}:</span>
                 <input 
                 value={this.state.fields[formElement.id].value}
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -181,7 +182,8 @@ class AddTeacher extends Component {
         return(
             <div className="AddTeacherMainsign">
                 {form}
-                <button className="AddTeacherMainButton"
+                <button className="common-form-buttons" 
+                style={{height:"40px",lineHeight:"40px",width:'180px',marginTop:"30px"}}
                 onClick={()=>this.addTeacher()}
                 disabled={formValidity}>AddTeacher</button>
                 {error}

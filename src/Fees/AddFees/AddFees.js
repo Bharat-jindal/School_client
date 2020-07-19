@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.css";
 
 import * as actions from '../../store/actions/index';
+import Spinner from '../../containers/UI/Spinner/Spinner';
 
 class addFees extends Component {
     state={
@@ -78,7 +79,7 @@ class addFees extends Component {
     render(){
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
 
         var error=null;
@@ -110,7 +111,7 @@ class addFees extends Component {
                         <span className={'AddFeesInputText'}>{formElement.id}:</span>
                 <input 
                 value={this.state.fields[formElement.id].value}
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -123,7 +124,8 @@ class addFees extends Component {
         return(
             <div className="AddFeesMainsign">
                 {form}
-                <button className="AddTeacherMainButton"
+                <button className="common-form-buttons"
+                style={{marginTop:"15px"}}
                 onClick={()=>this.addFees()}
                 disabled={formValidity}>Add Fees</button>
                 {spinner}

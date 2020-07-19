@@ -6,7 +6,8 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 import Backdrop from '../../containers/UI/Backdrop/Backdrop';
 import AddFee from '../AddFees/AddFees';
-import Studentside from '../StudentSide/StudentSide'
+import Studentside from '../StudentSide/StudentSide';
+import Spinner from '../../containers/UI/Spinner/Spinner';
 
 class FeeHome extends Component {
     state={
@@ -48,7 +49,7 @@ class FeeHome extends Component {
                 <span style={{paddingRight:'2vw'}}>{fee.amount}</span>
                 <button onClick={this.feeDeleteHandler.bind(this,fee.month,index)}>DELETE</button>
                 <br />
-                {(index===this.state.delIndex && this.props.loading)?<span className="fa fa-spinner"></span>:null}
+                {(index===this.state.delIndex && this.props.loading)?<Spinner />:null}
                 {(index===this.state.delIndex && this.props.deleteError)?<span >Something Went Wrong</span>:null}
                 
             </div>
@@ -58,8 +59,8 @@ class FeeHome extends Component {
             feeSwitch=<div>
                 <div>
                     <b>CLASS</b>
-                    <input value={this.state.class.value} onChange={this.classChangeHandler}/>
-                    <button onClick={this.getTheFees}>GET FEES</button>
+                    <input value={this.state.class.value} onChange={this.classChangeHandler} className="common-input"/>
+                    <button onClick={this.getTheFees} className="common-form-buttons">GET FEES</button>
                 </div>
                 <br />
                 <br />
@@ -79,7 +80,7 @@ class FeeHome extends Component {
                     <option value='Get' >GET</option>
                 </select>
                 {feeSwitch}
-                {this.props.loading && this.state.feeClicked ?<span className="fa fa-spinner deleteFeeSpinner"></span>:null}
+                {this.props.loading && this.state.feeClicked ?<Spinner />:null}
                 <Backdrop show={this.state.feeSwitch==='Add'} clicked={this.hideBackdrop} />
                 </div>                
         </div>

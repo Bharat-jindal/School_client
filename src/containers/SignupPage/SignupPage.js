@@ -97,7 +97,7 @@ class Signup extends Component {
     render(){
         var info=null;
         if(this.state.info){
-            info=<p onClick={this.changeinfoHAndler}>Conteact us to get your product key</p>
+            info=<p onClick={this.changeinfoHAndler}>Contact us to get your product key</p>
         }
         let formElementArray=[];
         var formValidity=false
@@ -119,7 +119,7 @@ class Signup extends Component {
                     <div key={formElement.id}>
                         <span className={'SignupInputText'}>{formElement.id}:</span>
                 <input 
-                className={classname.join(' ')}
+                className={classname.join(' ')+' common-input'}
                  onChange={(event) =>this.clickChangeHandler(event,formElement.id)} 
                  onFocus={this.onFocusHAndler.bind(this,formElement.id)} 
                  onBlur={this.onBlurHandler.bind(this,formElement.id)}/>
@@ -132,9 +132,10 @@ class Signup extends Component {
         return(
             <div className="SignupMainsign">
                 {form}
-                <p style={{cursor:'pointer'}} onClick={this.changeinfoHAndler}>Know More</p>
+                <p style={{cursor:'pointer',textDecoration:'underline'}} onClick={this.changeinfoHAndler}>Know More</p>
                 {info}
-                <button className="SignupMainButton"
+                <button className="common-form-buttons" 
+                style={{marginTop:'10px',width:'180px',height:'40px',lineHeight:'40px'}}
                 onClick={()=>this.props.clicked(this.state.fields)}
                 disabled={formValidity}>SIGNUP</button>
                     <p>{this.props.error?'Something Went Wrong':null}</p>

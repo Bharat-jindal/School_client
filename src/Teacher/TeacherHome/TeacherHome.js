@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 import Backdrop from '../../containers/UI/Backdrop/Backdrop';
 import ChangePassword from '../../School/Passwords/changePassword';
+import Spinner from '../../containers/UI/Spinner/Spinner';
 
 class Home extends Component {
     state={
@@ -21,7 +22,7 @@ class Home extends Component {
     render(){
         var spinner=null;
         if(this.props.loading){
-            spinner=<span className="fa fa-spinner"></span>
+            spinner=<Spinner />
         }
         var changePassword=null;
         if(this.state.password){
@@ -37,16 +38,18 @@ class Home extends Component {
 
         var properties=formElementArray.map(property=>{
             return <div key={property.id}>
-                <div key={property.id}><span className="SchoolTitles">{property.id}</span>:<span>{this.props.user[property.id]}</span></div>
+                <div key={property.id}><span className="SchoolTitles">{property.id.toUpperCase()}:</span><span>{this.props.user[property.id]}</span></div>
             </div>
         })
         return (
             <div>
                 {spinner}
                 <div>
-                    <div className="SchoolProperties">
+                    <div className="common-form-display">
                         {properties}
-                        <button className="SchoolPropertiesEditButton" onClick={this.passwordHandler}>CHANGE PASSWORD</button>
+                        <button className="common-form-buttons"
+                        style={{marginTop:"30px",marginLeft:"30px"}} 
+                        onClick={this.passwordHandler}>CHANGE PASSWORD</button>
                     </div>
                 </div>
                 {changePassword}
