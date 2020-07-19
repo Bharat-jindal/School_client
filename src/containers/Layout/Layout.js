@@ -22,7 +22,6 @@ class Layout extends Component {
 
     render() {
         var admin=false;
-        console.log(this.props.user)
         if(this.props.user!==null){
             admin=this.props.user.admin
         }

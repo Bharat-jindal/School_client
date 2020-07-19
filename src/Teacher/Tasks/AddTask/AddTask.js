@@ -148,7 +148,6 @@ class Addtask extends Component {
         }
         var properties=null
         if(this.props.updated && this.state.clicked){
-            console.log(this.props.task)
             properties=(<div className="AddedTaskProperties">
                 <span className="TaskTitles">Title:{this.props.task.title}</span>
                 <br />
@@ -172,7 +171,6 @@ class Addtask extends Component {
             error=<p>Somethin Went Wrong</p>
         }
         var added=null;
-        console.log('Updated',this.props.updated)
         if(this.props.updated && this.state.clicked){
             added=<p>task added successully</p>
         }

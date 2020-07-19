@@ -33,7 +33,7 @@
 
 .AddTeacherMainButton{
     width:20vw;
-    height: 6vh;
+    height: 40px;
     border:none;
     background-color: #4d4d4d
 }
@@ -54,6 +54,13 @@
     } 
     .SignupMainButton{
         width:40vw;
+    }
+
+    .AddTeacherMainsign{
+        width:90vw;
+        left:5vw;
+        height: 500px;
+        overflow: auto;
     }
 }
 
@@ -81,7 +88,16 @@
 }
 
 @media(max-width:500px){
-
+    .AddedTeacherProperties{
+        width: 90vw;
+        height: 500px;
+        overflow: auto;
+        top:45px;
+        left:5vw;
+    }
+    .SchoolPropertiesEditButton{
+        top:115px;
+    }
     .SchoolProperties{
         width: 100%;
     }

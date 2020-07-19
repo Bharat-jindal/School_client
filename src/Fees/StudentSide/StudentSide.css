@@ -35,8 +35,8 @@
         background-color: #ff9900;
         box-sizing: border-box;
         position: absolute;
-        top:30vh;
-        height: 30vh;
+        top:160px;
+        height: 180px;
         width: 80%;
         margin-left: 10%;
         z-index: 10000;

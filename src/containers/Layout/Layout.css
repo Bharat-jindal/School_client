@@ -2,3 +2,9 @@
     margin-top: 16px;
     min-height: 80vh;
 }
+
+@media(max-width:500px){
+    .container {
+        min-height: 600px;
+    }
+}

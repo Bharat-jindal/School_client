@@ -21,7 +21,6 @@ const loadinStudentsFail=()=>{
 }
 
 export const getMyStudents=(classNum)=>{
-    console.log(classNum)
     return dispatch=>{
         dispatch(loadingStart())
         axios({url:`/student/get`,method:'post',
@@ -32,7 +31,6 @@ export const getMyStudents=(classNum)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(student=>{
-        console.log(student.data)
         if(student!==null){
             dispatch(storeStudents(student.data))
         }
@@ -168,7 +166,6 @@ export const getMyTasks=()=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(task=>{
-        console.log(task.data)
         if(task!==null){
             dispatch(storeTasks(task.data))
         }

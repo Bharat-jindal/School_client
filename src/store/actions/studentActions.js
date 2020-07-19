@@ -41,7 +41,6 @@ export const getStudentProppertyFees=(id)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(student=>{
-        console.log(student.data)
         if(student!==null){
             dispatch(storeFees(student.data.fees))
         }
@@ -61,7 +60,6 @@ export const getStudentProppertyTasks=(id)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(student=>{
-        console.log(student.data)
         if(student!==null){
             dispatch(storeTasks(student.data))
         }
@@ -81,7 +79,6 @@ export const getStudentPropertyBooks=()=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(student=>{
-        console.log(student.data)
         if(student!==null){
             dispatch(storeBooks(student.data.books))
         }

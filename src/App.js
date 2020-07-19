@@ -53,7 +53,6 @@ class App extends Component{
     this.props.onAutoSignUp()
   }
   render(){
-    console.log(this.props.user)
     let routes = (
       <Switch>
             <Route path="/" exact component={asyncLogin} />

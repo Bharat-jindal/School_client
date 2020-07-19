@@ -19,7 +19,7 @@ class LoginPage extends Component{
     }
 
     hideSignupLoginHandler=()=>{
-        this.setState({Signup:false,Login:false,setPassword:false})
+        this.setState({Signup:false,Login:false,setPassword:false,sisnupMessage:false})
     }
     showSignUpHandler=()=>{
         this.setState({Signup:true})
@@ -40,7 +40,6 @@ class LoginPage extends Component{
             setPassword=<SetPassword />
         }
         if(this.props.loading){
-            console.log('Loading..')
             spinner=<i className="fas fa-spinner Loader" ></i>
         }
         if(this.props.error!==null){

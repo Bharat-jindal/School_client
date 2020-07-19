@@ -6,7 +6,9 @@
     height: 50vh;
     background-color: #ff9900;
     z-index: 10000;
-    backface-visibility: 0.9
+    backface-visibility: 0.9;
+    overflow:auto;
+    min-height: 300px
 }
 
 .AddFeesInput{
@@ -33,7 +35,7 @@
 
 .AddTeacherMainButton{
     width:20vw;
-    height: 6vh;
+    height: 40px;
     border:none;
     background-color: #4d4d4d
 }

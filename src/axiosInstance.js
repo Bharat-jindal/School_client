@@ -1,6 +1,6 @@
 import  axios from 'axios';
 
 const instance = axios.create({
-  baseURL: ' http://localhost:2000',
+  baseURL: 'https://stark-falls-46965.herokuapp.com',
 });
 export default instance;

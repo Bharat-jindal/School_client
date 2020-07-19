@@ -1,5 +1,6 @@
 import React ,{Component} from 'react';
 import {connect} from 'react-redux';
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import './MyTeachers.css'
 import Backdrop from '../../containers/UI/Backdrop/Backdrop';
@@ -104,6 +105,7 @@ class MyTeachers extends Component{
                         </div>
                     })
                 }
+                <div><span className="SchoolTitles">Admin</span>:<span>{this.state.teacher['admin']?'Admin':'Not Admin'}</span></div>
             </div>
         )
         
@@ -125,6 +127,7 @@ class MyTeachers extends Component{
     })
     return (
         <div>
+            {this.props.loading?<span className="fa fa-spinner" style={{fontSize:'30vh'}}></span>:null}
             {teachers}
             {editior}
             {set}
@@ -141,6 +144,7 @@ class MyTeachers extends Component{
 
 const mapStateToProps=(state)=>{
     return {
+        loading:state.school.loading,
         teachers:state.school.teachers,
         delError:state.school.teachDelErr,
         delSuccess:state.school.teachDelSuccess

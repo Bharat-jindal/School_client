@@ -63,7 +63,6 @@ class Signup extends Component {
 
     render(){
         var error=null;
-        console.log(this.props.error)
         if(this.state.clicked){
             error=this.props.error
         }

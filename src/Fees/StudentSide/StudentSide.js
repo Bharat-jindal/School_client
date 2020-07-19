@@ -45,7 +45,6 @@ class studentSide extends Component {
         this.setState({feePaidStatus:event.target.value})
     }
     render(){
-        console.log(this.props.studGet)
 
         var updateInfo=null;
         if(this.state.updateClicked && this.props.updateError){

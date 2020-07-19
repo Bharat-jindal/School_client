@@ -29,7 +29,6 @@ export const getAllBook=(classNum)=>{
     }})
     .then(response=>{
         if(response!==null){
-            console.log(response)
             return dispatch(getallbookSuccess(response.data))
         }
              getallbookError()
@@ -52,7 +51,6 @@ export const getStudentBooks=(username)=>{
     }})
     .then(response=>{
         if(response!==null){
-            console.log(response)
             return dispatch(getallbookSuccess(response.data.books))
         }
          getallbookError()
@@ -95,7 +93,6 @@ export const issueBook=(bookId,student,available)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(response=>{
-        console.log(response)
         if(response!==null){
             return dispatch(issuebookSuccess())
         }
@@ -119,7 +116,6 @@ export const addBook=(title,subject)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(response=>{
-        console.log(response)
         if(response!==null){
             return dispatch(issuebookSuccess())
         }
@@ -162,7 +158,6 @@ export const updateBook=(bookId,title,subject,bookswitch,username)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(response=>{
-        console.log(response)
         if(bookswitch==='All'){
             dispatch(getAllBook())
         }
@@ -188,7 +183,6 @@ export const deleteBook=(bookId,bookswitch,username)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(response=>{
-        console.log(response)
         if(bookswitch==='All'){
             dispatch(getAllBook())
         }

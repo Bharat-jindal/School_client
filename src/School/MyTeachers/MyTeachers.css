@@ -72,6 +72,8 @@
 @media(max-width:500px){
     .TeacherIntro{
         height: 28vh;
+        overflow: auto;
+        width:90vw;
     }
     .TeacherProperties{
         width: 100%;
@@ -84,6 +86,7 @@
         left:0vw;
         top:35vh;
         padding-top: 8vh;
+        overflow: auto;
     }
     
     .CancelButton {

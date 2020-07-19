@@ -55,7 +55,6 @@ const checkAuthTimeOut = (expirationTime) => {
 }
 
 export const authentication = (username,password,role) => {
-    console.log(role)
     return dispatch => {
         dispatch(authStart());
         const reqPayload={   username:username,
@@ -63,13 +62,11 @@ export const authentication = (username,password,role) => {
         }
         axios({url:`/${role}/login`,method:'post',data:reqPayload})
         .then(response=> {
-            console.log(response)
             const expirationTime=new Date(new Date().getTime()+36000000);
             localStorage.setItem('idToken',response.data.token);
             localStorage.setItem('expirationTime',expirationTime);
             localStorage.setItem('user',JSON.stringify(response.data.user));
             localStorage.setItem('role',role);
-            console.log(response)
             dispatch(checkAuthTimeOut(36000000))
             return dispatch(authSuccess(response.data.idToken,response.data.user,role))
         })
@@ -117,7 +114,6 @@ export const signUpSchool=(fields)=>{
             district:fields.district.value,
             uniquepass:fields.ProductKey.value
         }
-        console.log(reqPayload)
         axios({url:`/school/signup`,method:'post',data:reqPayload})
         .then(response=> {
             return dispatch(signupSuccess())
@@ -138,7 +134,6 @@ export const updateSchool=(name,streat,town,district,state)=>{
             district:district,
             state:state,
         }
-        console.log(reqPayload)
         axios({url:`/school`,method:'put',data:reqPayload,
     headers:{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
@@ -165,7 +160,6 @@ export const updateStudent=(name,streat,town,district,state)=>{
             district:district,
             state:state,
         }
-        console.log(reqPayload)
         axios({url:`/school`,method:'put',data:reqPayload,
     headers:{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`

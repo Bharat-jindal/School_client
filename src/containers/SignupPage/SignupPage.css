@@ -4,6 +4,7 @@
     left:20vw;
     width:60vw;
     height: 90vh;
+    overflow: auto;
     background-color: #ff9900;
     z-index: 10000;
     backface-visibility: 0.9
@@ -33,7 +34,7 @@
 
 .SignupMainButton{
     width:20vw;
-    height: 6vh;
+    height: 40px;
     border:none;
     background-color: #4d4d4d
 }
@@ -44,7 +45,8 @@
         width:90vw;
         background-color: #ff9900;
         z-index: 10000;
-        backface-visibility: 0.9
+        backface-visibility: 0.9;
+        overflow: auto;
     }
     
     .signupInput{

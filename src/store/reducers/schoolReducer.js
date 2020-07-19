@@ -16,7 +16,6 @@ const loadingStart = (state,action) => {
     return updateObject(state,{loading: true,teacherError: null})
 }
 const getMyTeachers = (state,action) => {
-    console.log(action.teachers)
     return updateObject(state,{
         teachers:action.teachers,
         loading:false,

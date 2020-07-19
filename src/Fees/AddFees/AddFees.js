@@ -70,7 +70,6 @@ class addFees extends Component {
 
     addFees =() =>{
         this.setState({clicked:true});
-        console.log(this.state.fields)
         this.props.onaddFeesRequest(
             this.state.fields
         )

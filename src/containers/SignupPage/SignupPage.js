@@ -102,7 +102,7 @@ class Signup extends Component {
         let formElementArray=[];
         var formValidity=false
         for(let key in this.state.fields){
-            formValidity=formValidity || (!this.state.fields[key].validity || this.state.fields[key].touched)
+            formValidity=formValidity || (!this.state.fields[key].validity || !this.state.fields[key].touched)
             formElementArray.push({
                 id: key
             })
@@ -137,7 +137,7 @@ class Signup extends Component {
                 <button className="SignupMainButton"
                 onClick={()=>this.props.clicked(this.state.fields)}
                 disabled={formValidity}>SIGNUP</button>
-                    <p>{this.props.error}</p>
+                    <p>{this.props.error?'Something Went Wrong':null}</p>
             </div>
         )
     }

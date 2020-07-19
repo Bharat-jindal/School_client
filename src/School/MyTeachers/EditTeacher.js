@@ -105,7 +105,6 @@ class EditProperties extends Component {
     render(){
 
         var update=null;
-        console.log()
         if(this.props.updated && this.state.clicked){
             update=<p>Info Updated</p>
         }

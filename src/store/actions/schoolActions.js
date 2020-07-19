@@ -28,7 +28,6 @@ export const getMyTechers=()=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(teacher=>{
-        console.log(teacher.data)
         if(teacher!==null){
             dispatch(storeTeachers(teacher.data))
         }

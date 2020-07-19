@@ -62,7 +62,6 @@ const addFeesFail=()=>{
 }
 
 export const addFees=(fields)=>{
-    console.log(fields)
     return dispatch=>{
         dispatch(addStart())
         axios({url:`/fees`,method:'post',
@@ -76,7 +75,6 @@ export const addFees=(fields)=>{
     }})
     .then(fees=>{
         if(fees!==null){
-            console.log(fees)
             dispatch(addFeesSuccess())
             return dispatch(getMyfees(fields.class.value))
         }
@@ -161,7 +159,6 @@ export const feeStatus=(username)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(response=>{
-        console.log(response)
         if(response!==null){
             return dispatch(gettingFeeStatusSuccess(response.data.fees,response.data._id))
         }
@@ -205,7 +202,6 @@ export const updatingFeeStatus=(studentId,month,paid,username)=>{
         'Authorization':`bearer ${localStorage.getItem('idToken')}`
     }})
     .then(response=>{
-        console.log(response)
         if(response!==null){
             dispatch(updatingFeeStatusSuccess())
             return dispatch(feeStatus(username.value))

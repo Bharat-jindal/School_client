@@ -112,7 +112,6 @@ class AddTeacher extends Component {
     render(){
         let teacherElementArray=[];
         if(this.props.updated && this.state.clicked){
-            console.log(this.props.teacher)
             for(let key in this.props.teacher){
                 if(key!=='__v' && key !=='_id' && key!=='_id' && key!=='admin' && key!=='tests' && key!=='schoolname')
                 teacherElementArray.push({
@@ -127,7 +126,8 @@ class AddTeacher extends Component {
                 )
                 
             }
-            <div><span className="SchoolTitles">Password</span><span className="SchoolTitles">{this.state.fields.password.value}</span></div>
+            
+            <div><span className="SchoolTitles">Password:  </span><span className="SchoolTitles">{this.state.fields.password.value}</span></div>
             <button className="SchoolPropertiesEditButton" onClick={this.closePropertiesHandler}>Close</button>
             
         </div>)

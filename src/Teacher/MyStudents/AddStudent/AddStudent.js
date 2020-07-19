@@ -139,7 +139,6 @@ class AddStudent extends Component {
         }
         let studentElementArray=[];
         if(this.props.updated && this.state.clicked){
-            console.log(this.props.student)
             for(let key in this.props.student){
                 if(key!=='__v' && key !=='_id' && key!=='tests' && key!=='schoolname'  && key!=='books' && key!=='fees')
                 studentElementArray.push({
@@ -166,7 +165,6 @@ class AddStudent extends Component {
             error=<p>Somethin Went Wrong</p>
         }
         var added=null;
-        console.log('Updated',this.props.updated)
         if(this.props.updated && this.state.clicked){
             added=<p>Student added successully</p>
         }
@@ -200,7 +198,6 @@ class AddStudent extends Component {
                 )}
                 </div>
             )
-            console.log(properties)
 
         return(
             <div className="AddTeacherMainsign">

@@ -4,6 +4,7 @@
     left:20vw;
     width:60vw;
     height: 60vh;
+    min-height: 470px;
     background-color: #ff9900;
     z-index: 10000;
     backface-visibility: 0.9
@@ -33,7 +34,7 @@
 
 .SignupMainButton{
     width:20vw;
-    height: 6vh;
+    height: 40px;
     border:none;
     background-color: #4d4d4d
 }
@@ -48,7 +49,7 @@
     .SignupMain{
         left:5vw;
         width:90vw;
-        height: 40vh;
+        height: 230px;
         background-color: #ff9900;
         z-index: 10000;
         backface-visibility: 0.9
@@ -59,5 +60,9 @@
         left:5vw;
         font-size: large;
     } 
+
+    .SignupMainButton{
+        height: 33px;
+    }
     
 }
